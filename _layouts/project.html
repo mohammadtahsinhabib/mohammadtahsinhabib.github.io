@@ -1,0 +1,132 @@
+---
+layout: default
+refactor: true
+panel_includes:
+  - toc
+tail_includes:
+  - related-posts
+  - post-nav
+---
+
+<article class="px-1">
+  <header>
+    <h1 data-toc-skip>{{ page.title }}</h1>
+    
+    <div class="post-meta text-muted mb-3">
+      <span>
+        <i class="far fa-calendar-alt"></i>
+        {{ page.date | date: site.data.locales[site.lang].date_format.post.long }}
+      </span>
+
+      {% if page.status %}
+        <span class="mx-2">•</span>
+        {% case page.status %}
+          {% when "Completed" %}
+            <span class="badge bg-success text-white">
+              <i class="fas fa-check-circle"></i> {{ page.status }}
+            </span>
+          {% when "In Progress" %}
+            <span class="badge bg-warning text-dark">
+              <i class="fas fa-spinner"></i> {{ page.status }}
+            </span>
+          {% when "Planned" %}
+            <span class="badge bg-info text-white">
+              <i class="fas fa-lightbulb"></i> {{ page.status }}
+            </span>
+          {% else %}
+            <span class="badge bg-secondary text-white">{{ page.status }}</span>
+        {% endcase %}
+      {% endif %}
+
+      {% if page.github %}
+        <span class="mx-2">•</span>
+        <a href="{{ page.github }}" target="_blank" rel="noopener" class="text-decoration-none">
+          <span class="badge bg-dark text-white">
+            <i class="fab fa-github"></i> GitHub
+          </span>
+        </a>
+      {% endif %}
+
+      {% if page.demo %}
+        <span class="mx-2">•</span>
+        <a href="{{ page.demo }}" target="_blank" rel="noopener" class="text-decoration-none">
+          <span class="badge bg-primary text-white">
+            <i class="fas fa-external-link-alt"></i> Live Demo
+          </span>
+        </a>
+      {% endif %}
+    </div>
+
+    {% if page.description %}
+      <p class="text-muted mb-3">
+        <em>{{ page.description }}</em>
+      </p>
+    {% endif %}
+
+    {% if page.image %}
+      <div class="mt-4 mb-4">
+        <img src="{{ page.image }}" alt="{{ page.title }}" class="w-100 rounded shadow-sm">
+      </div>
+    {% endif %}
+
+    {% if page.tech_stack and page.tech_stack.size > 0 %}
+      <div class="post-meta mb-4">
+        <strong><i class="fas fa-code"></i> Tech Stack:</strong>
+        <div class="mt-2">
+          {% for tech in page.tech_stack %}
+            <span class="badge bg-light text-dark border me-1 mb-1">
+              {{ tech }}
+            </span>
+          {% endfor %}
+        </div>
+      </div>
+    {% endif %}
+
+    {% if page.tags and page.tags.size > 0 %}
+      <div class="post-meta mb-3">
+        <i class="fas fa-tags"></i>
+        {% for tag in page.tags %}
+          <span class="badge bg-light text-dark border me-1">{{ tag }}</span>
+        {% endfor %}
+      </div>
+    {% endif %}
+
+    {% if page.features and page.features.size > 0 %}
+      <div class="post-meta mb-4">
+        <strong><i class="fas fa-list-ul"></i> Key Features:</strong>
+        <ul class="mt-2 mb-0">
+          {% for feature in page.features %}
+            <li>{{ feature }}</li>
+          {% endfor %}
+        </ul>
+      </div>
+    {% endif %}
+  </header>
+
+  <div class="content">
+    {{ content }}
+  </div>
+
+  <div class="post-tail-wrapper text-muted mt-5">
+    {% if page.github or page.demo %}
+      <div class="project-links p-4 mb-4 border rounded bg-light">
+        <h3 class="h5 mb-3"><i class="fas fa-link"></i> Project Links</h3>
+        <div class="d-flex gap-3 flex-wrap">
+          {% if page.github %}
+            <a href="{{ page.github }}" target="_blank" rel="noopener" class="btn btn-dark">
+              <i class="fab fa-github"></i> View on GitHub
+            </a>
+          {% endif %}
+          {% if page.demo %}
+            <a href="{{ page.demo }}" target="_blank" rel="noopener" class="btn btn-primary">
+              <i class="fas fa-external-link-alt"></i> Live Demo
+            </a>
+          {% endif %}
+        </div>
+      </div>
+    {% endif %}
+
+    {% include post-nav.html %}
+    {% include related-posts.html %}
+  </div>
+</article>
