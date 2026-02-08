@@ -1,5 +1,5 @@
 ---
-title: "Easy Windows box vulnerable to MS17-010 EternalBlue test"
+title: "Easy Windows box vulnerable to MS17-010 EternalBlue modification test"
 date: 2024-01-01
 categories: [HackTheBox]
 layout : post
