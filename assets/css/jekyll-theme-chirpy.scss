@@ -1,0 +1,19 @@
+---
+---
+
+/* prettier-ignore */
+@use 'main
+{%- if jekyll.environment == 'production' -%}
+  .bundle
+{%- endif -%}
+';
+
+
+// #sidebar {
+//     background-image: url("/assets/img/sidebar.webp");
+//     background-size: cover; /* <- customize the image size */
+//     background-repeat: no-repeat; /* <- no-repeat */
+//     background-position: top; /* <- image position */
+//     transition: none;
+// }
+
