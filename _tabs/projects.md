@@ -7,7 +7,9 @@ published: true
 
 # Projects
 
-Here are some of my personal projects and development work.
+## DUMMY TEST CONTENT
+
+This section is temporarily populated with placeholder material for visual testing before launch.
 
 <div class="project-grid">
 {% for project in site.projects %}
