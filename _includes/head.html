@@ -78,7 +78,12 @@
     {{- site.title -}}
   </title>
 
-  {% include_cached favicons.html %}
+  <link rel="icon" type="image/x-icon" href="{{ '/assets/img/favicons/favicon.ico' | relative_url }}">
+  <link rel="icon" type="image/png" href="{{ '/assets/img/favicons/favicon-32x32.png' | relative_url }}" sizes="32x32">
+  <link rel="apple-touch-icon" sizes="180x180" href="{{ '/assets/img/favicons/apple-touch-icon.png' | relative_url }}">
+  {% if site.pwa.enabled %}
+    <link rel="manifest" href="{{ '/assets/img/favicons/site.webmanifest' | relative_url }}">
+  {% endif %}
 
   <!-- Resource Hints -->
   {% unless site.assets.self_host.enabled %}
@@ -120,7 +125,7 @@
 
   <!-- Scripts -->
   <script src="{{ '/assets/js/dist/theme.min.js' | relative_url }}"></script>
-  <script defer src="{{ '/assets/js/sidebar-collapse.js' | relative_url }}"></script>
+
 
   {% include js-selector.html lang=lang %}
 
