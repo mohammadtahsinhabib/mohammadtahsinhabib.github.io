@@ -42,7 +42,7 @@
         : '<i class="fas fa-chevron-right"></i>';
     });
 
-    document.body.appendChild(toggleButton);
+    sidebar.appendChild(toggleButton);
 
     try {
       var saved = localStorage.getItem(STORAGE_KEY);
